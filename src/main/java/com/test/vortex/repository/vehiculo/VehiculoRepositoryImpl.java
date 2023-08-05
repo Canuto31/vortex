@@ -25,7 +25,7 @@ public class VehiculoRepositoryImpl implements VehiculoRepository{
 
     @Override
     public Optional<List<VehicleDto>> getVehicleByIdDriver(int idDriver) {
-        List<Vehiculo> orders = (List<Vehiculo>) crudRepository.findByIdDriverOrderByFirstNameAsc(idDriver);
+        List<Vehiculo> orders = crudRepository.findByIdDriverOrderByFirstNameAsc(idDriver);
         return Optional.of(mapper.entitiesToDtos(orders));
     }
 
@@ -42,6 +42,6 @@ public class VehiculoRepositoryImpl implements VehiculoRepository{
 
     @Override
     public void delete(int idVehicle) {
-
+        crudRepository.deleteById(idVehicle);
     }
 }
