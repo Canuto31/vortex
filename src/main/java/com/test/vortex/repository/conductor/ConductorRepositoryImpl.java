@@ -35,11 +35,12 @@ public class ConductorRepositoryImpl implements ConductorRepository{
 
     @Override
     public DriverDto save(DriverDto driverDto) {
-        return null;
+        Conductor driver = mapper.dtoToEntity(driverDto);
+        return mapper.entityToDto(crudRepository.save(driver));
     }
 
     @Override
     public void delete(int idDriver) {
-
+    crudRepository.deleteById(idDriver);
     }
 }
