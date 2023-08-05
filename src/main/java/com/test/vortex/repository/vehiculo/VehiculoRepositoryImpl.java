@@ -36,7 +36,8 @@ public class VehiculoRepositoryImpl implements VehiculoRepository{
 
     @Override
     public VehicleDto save(VehicleDto vehicleDto) {
-        return null;
+        Vehiculo vehiculo = mapper.dtoToEntity(vehicleDto);
+        return mapper.entityToDto(crudRepository.save(vehiculo));
     }
 
     @Override
