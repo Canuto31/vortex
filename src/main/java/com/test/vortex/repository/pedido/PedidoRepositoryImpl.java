@@ -2,6 +2,7 @@ package com.test.vortex.repository.pedido;
 
 import com.test.vortex.mapper.PedidoMapper;
 import com.test.vortex.model.dto.OrderDto;
+import com.test.vortex.model.entity.Pedido;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -18,7 +19,13 @@ public class PedidoRepositoryImpl implements PedidoRepository{
 
     @Override
     public List<OrderDto> getAll() {
-        return null;
+        List<Pedido> orders = (List<Pedido>) crudRepository.findAll();
+        return mapper.entitiesToDtos(orders);
+    }
+
+    @Override
+    public Optional<List<Pedido>> getOrderByIdDriver(int idDriver) {
+        return Optional.empty();
     }
 
     @Override
