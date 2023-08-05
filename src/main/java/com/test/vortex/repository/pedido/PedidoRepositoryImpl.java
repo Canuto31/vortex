@@ -31,7 +31,7 @@ public class PedidoRepositoryImpl implements PedidoRepository{
 
     @Override
     public Optional<OrderDto> getOrderById(int idOrder) {
-        return Optional.empty();
+        return crudRepository.findById(idOrder).map(order -> mapper.entityToDto(order));
     }
 
     @Override
