@@ -3,6 +3,7 @@ package com.test.vortex.repository.vehiculo;
 import com.test.vortex.mapper.VehiculoMapper;
 import com.test.vortex.model.dto.VehicleDto;
 import com.test.vortex.model.entity.Pedido;
+import com.test.vortex.model.entity.Vehiculo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -19,7 +20,8 @@ public class VehiculoRepositoryImpl implements VehiculoRepository{
 
     @Override
     public List<VehicleDto> getAll() {
-        return null;
+        List<Vehiculo> vehicles = (List<Vehiculo>) crudRepository.findAll();
+        return mapper.entitiesToDtos(vehicles);
     }
 
     @Override
