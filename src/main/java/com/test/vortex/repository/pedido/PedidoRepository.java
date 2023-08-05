@@ -10,7 +10,7 @@ public interface PedidoRepository {
 
     List<OrderDto> getAll();
 
-    Optional<List<Pedido>> getOrderByIdDriver(int idDriver);
+    Optional<List<OrderDto>> getOrderByIdDriver(int idDriver);
     Optional<OrderDto> getOrderById(int idOrder);
     OrderDto save(OrderDto orderDto);
     void delete(int idOrder);

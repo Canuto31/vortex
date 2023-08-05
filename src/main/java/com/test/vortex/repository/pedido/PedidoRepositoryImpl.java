@@ -24,8 +24,9 @@ public class PedidoRepositoryImpl implements PedidoRepository{
     }
 
     @Override
-    public Optional<List<Pedido>> getOrderByIdDriver(int idDriver) {
-        return Optional.empty();
+    public Optional<List<OrderDto>> getOrderByIdDriver(int idDriver) {
+        List<Pedido> orders = (List<Pedido>) crudRepository.findByIdDriverOrderByFirstNameAsc(idDriver);
+        return Optional.of(mapper.entitiesToDtos(orders));
     }
 
     @Override
