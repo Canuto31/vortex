@@ -4,8 +4,9 @@ import com.test.vortex.model.entity.Pedido;
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface PedidoCrudRepository extends CrudRepository<Pedido, Integer> {
 
-    List<Pedido> findByIdDriverOrderByFirstNameAsc(int idDriver);
+    Optional<List<Pedido>> findByIdDriverOrderByFirstNameAsc(int idDriver);
 }

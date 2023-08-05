@@ -4,8 +4,9 @@ import com.test.vortex.model.entity.Conductor;
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface ConductorCrudRepository extends CrudRepository<Conductor, Integer> {
 
-    List<Conductor> findByIdentificacion(int identification);
+    Optional<List<Conductor>> findByIdentificacion(int identification);
 }
