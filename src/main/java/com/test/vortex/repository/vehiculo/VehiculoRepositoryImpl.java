@@ -31,7 +31,7 @@ public class VehiculoRepositoryImpl implements VehiculoRepository{
 
     @Override
     public Optional<VehicleDto> getVehicleById(int idVehicle) {
-        return Optional.empty();
+        return crudRepository.findById(idVehicle).map(vehicle -> mapper.entityToDto(vehicle));
     }
 
     @Override
