@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Repository
-public class PedidoRepositoryImpl implements PedidoRepository{
+public class PedidoRepositoryImpl implements PedidoRepository {
 
     @Autowired
     private PedidoCrudRepository crudRepository;
@@ -42,6 +42,6 @@ public class PedidoRepositoryImpl implements PedidoRepository{
 
     @Override
     public void delete(int idOrder) {
-
+        crudRepository.deleteById(idOrder);
     }
 }
