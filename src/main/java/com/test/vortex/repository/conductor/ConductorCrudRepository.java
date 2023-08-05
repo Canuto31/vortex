@@ -8,5 +8,5 @@ import java.util.Optional;
 
 public interface ConductorCrudRepository extends CrudRepository<Conductor, Integer> {
 
-    Optional<List<Conductor>> findByIdentificacion(int identification);
+    Optional<Conductor> findByIdentificacion(int identification);
 }
