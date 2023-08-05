@@ -2,7 +2,6 @@ package com.test.vortex.repository.vehiculo;
 
 import com.test.vortex.mapper.VehiculoMapper;
 import com.test.vortex.model.dto.VehicleDto;
-import com.test.vortex.model.entity.Pedido;
 import com.test.vortex.model.entity.Vehiculo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -25,8 +24,9 @@ public class VehiculoRepositoryImpl implements VehiculoRepository{
     }
 
     @Override
-    public Optional<List<Pedido>> getOrderByIdDriver(int idDriver) {
-        return Optional.empty();
+    public Optional<List<VehicleDto>> getVehicleByIdDriver(int idDriver) {
+        List<Vehiculo> orders = (List<Vehiculo>) crudRepository.findByIdDriverOrderByFirstNameAsc(idDriver);
+        return Optional.of(mapper.entitiesToDtos(orders));
     }
 
     @Override

@@ -10,7 +10,7 @@ public interface VehiculoRepository {
 
     List<VehicleDto> getAll();
 
-    Optional<List<Pedido>> getOrderByIdDriver(int idDriver);
+    Optional<List<VehicleDto>> getVehicleByIdDriver(int idDriver);
     Optional<VehicleDto> getVehicleById(int idVehicle);
     VehicleDto save(VehicleDto vehicleDto);
     void delete(int idVehicle);
