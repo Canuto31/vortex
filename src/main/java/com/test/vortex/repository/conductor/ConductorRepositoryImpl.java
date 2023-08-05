@@ -30,7 +30,7 @@ public class ConductorRepositoryImpl implements ConductorRepository{
 
     @Override
     public Optional<DriverDto> getDriverById(int idDriver) {
-        return Optional.empty();
+        return crudRepository.findById(idDriver).map(driver -> mapper.entityToDto(driver));
     }
 
     @Override
