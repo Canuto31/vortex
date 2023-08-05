@@ -2,6 +2,7 @@ package com.test.vortex.repository.conductor;
 
 import com.test.vortex.mapper.ConductorMapper;
 import com.test.vortex.model.dto.DriverDto;
+import com.test.vortex.model.entity.Conductor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -18,7 +19,8 @@ public class ConductorRepositoryImpl implements ConductorRepository{
 
     @Override
     public List<DriverDto> getAll() {
-        return null;
+        List<Conductor> drivers = (List<Conductor>) crudRepository.findAll();
+        return mapper.entitiesToDtos(drivers);
     }
 
     @Override
