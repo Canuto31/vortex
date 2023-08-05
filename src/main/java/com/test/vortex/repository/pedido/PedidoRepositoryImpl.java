@@ -36,7 +36,8 @@ public class PedidoRepositoryImpl implements PedidoRepository{
 
     @Override
     public OrderDto save(OrderDto orderDto) {
-        return null;
+        Pedido order = mapper.dtoToEntity(orderDto);
+        return mapper.entityToDto(crudRepository.save(order));
     }
 
     @Override
