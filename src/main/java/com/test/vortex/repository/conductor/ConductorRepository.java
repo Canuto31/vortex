@@ -8,7 +8,7 @@ import java.util.Optional;
 public interface ConductorRepository {
 
     List<DriverDto> getAll();
-    Optional<DriverDto> getDriverById(int idBook);
-    DriverDto save(DriverDto bookDto);
-    void delete(int idBook);
+    Optional<DriverDto> getDriverById(int idDriver);
+    DriverDto save(DriverDto driverDto);
+    void delete(int idDriver);
 }
