@@ -27,8 +27,8 @@ public class ConductorController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<DriverDto> getDriverById(@PathVariable("id") int id) {
-        return service.getDriverById(id).map(driver -> new ResponseEntity<>(driver, HttpStatus.OK)).orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
+    public ResponseEntity<DriverDto> getDriverById(@PathVariable("id") int idDriver) {
+        return service.getDriverById(idDriver).map(driver -> new ResponseEntity<>(driver, HttpStatus.OK)).orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
 
     @PostMapping()
