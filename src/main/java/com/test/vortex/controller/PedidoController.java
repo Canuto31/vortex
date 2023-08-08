@@ -5,9 +5,7 @@ import com.test.vortex.service.pedido.PedidoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -21,5 +19,26 @@ public class PedidoController {
     @GetMapping()
     public ResponseEntity<List<OrderDto>> getAll() {
         return new ResponseEntity<>(service.getAll(), HttpStatus.OK);
+    }
+
+    @GetMapping("/conductor/{id}")
+    public ResponseEntity<List<OrderDto>> getOrderByDriver(@PathVariable("id") int idDriver) {
+        return service.getOrderByIdDriver(idDriver).map(order -> new ResponseEntity<>(order, HttpStatus.OK)).orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
+    }
+
+    @GetMapping("/id/{id}")
+    public ResponseEntity<OrderDto> getDriverById(@PathVariable("id") int idOrder) {
+        return service.getOrderById(idOrder).map(driver -> new ResponseEntity<>(driver, HttpStatus.OK)).orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
+    }
+
+    @PostMapping()
+    public ResponseEntity<OrderDto> saveDriver(@RequestBody OrderDto orderDto) {
+        return new ResponseEntity<>(service.save(orderDto), HttpStatus.CREATED);
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<String> deleteDriver(@PathVariable("id") int idOrder) {
+        return new ResponseEntity<>(service.delete(idOrder) ? "Deleted successfully" : "Not found",
+                this.service.delete(idOrder) ? HttpStatus.OK : HttpStatus.NOT_FOUND);
     }
 }
