@@ -8,8 +8,8 @@ import java.util.Optional;
 public interface PedidoService {
 
     List<OrderDto> getAll();
-    Optional<List<OrderDto>> getOrderByIdDriver(int idOrder);
-    Optional<OrderDto> getOrderById(int irOrder);
+    Optional<List<OrderDto>> getOrderByIdDriver(int idDriver);
+    Optional<OrderDto> getOrderById(int idOrder);
     OrderDto save(OrderDto orderDto);
     Boolean delete(int idOrder);
 }

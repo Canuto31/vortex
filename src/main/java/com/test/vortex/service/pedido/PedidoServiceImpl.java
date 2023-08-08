@@ -20,22 +20,25 @@ public class PedidoServiceImpl implements PedidoService{
     }
 
     @Override
-    public Optional<List<OrderDto>> getOrderByIdDriver(int idOrder) {
-        return Optional.empty();
+    public Optional<List<OrderDto>> getOrderByIdDriver(int idDriver) {
+        return repository.getOrderByIdDriver(idDriver);
     }
 
     @Override
-    public Optional<OrderDto> getOrderById(int irOrder) {
-        return Optional.empty();
+    public Optional<OrderDto> getOrderById(int idOrder) {
+        return repository.getOrderById(idOrder);
     }
 
     @Override
     public OrderDto save(OrderDto orderDto) {
-        return null;
+        return repository.save(orderDto);
     }
 
     @Override
     public Boolean delete(int idOrder) {
-        return null;
+        return getOrderById(idOrder).map(order -> {
+            repository.delete(idOrder);
+            return true;
+        }).orElse(false);
     }
 }
