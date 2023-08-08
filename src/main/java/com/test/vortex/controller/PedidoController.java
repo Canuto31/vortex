@@ -32,12 +32,12 @@ public class PedidoController {
     }
 
     @PostMapping()
-    public ResponseEntity<OrderDto> saveDriver(@RequestBody OrderDto orderDto) {
+    public ResponseEntity<OrderDto> saveOrder(@RequestBody OrderDto orderDto) {
         return new ResponseEntity<>(service.save(orderDto), HttpStatus.CREATED);
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<String> deleteDriver(@PathVariable("id") int idOrder) {
+    public ResponseEntity<String> deleteOrder(@PathVariable("id") int idOrder) {
         return new ResponseEntity<>(service.delete(idOrder) ? "Deleted successfully" : "Not found",
                 this.service.delete(idOrder) ? HttpStatus.OK : HttpStatus.NOT_FOUND);
     }
