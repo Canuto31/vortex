@@ -1,8 +1,8 @@
 -- -----------------------------------------------------
--- Table "CONDUCTOR"
+-- Table "conductor"
 -- -----------------------------------------------------
-CREATE TABLE "CONDUCTOR" (
-    "id" INTEGER NOT NULL,
+CREATE TABLE "conductor" (
+    "id" SERIAL NOT NULL,
     "identificacion" VARCHAR(11) NOT NULL,
     "apellido" VARCHAR(20),
     "nombre" VARCHAR(20) NOT NULL,
@@ -11,27 +11,33 @@ CREATE TABLE "CONDUCTOR" (
     PRIMARY KEY ("id")
 );
 
+--CREATE SEQUENCE conductor_seq START 1;
+
 -- -----------------------------------------------------
--- Table "PEDIDO"
+-- Table "pedido"
 -- -----------------------------------------------------
-CREATE TABLE "PEDIDO" (
-    "id" INTEGER NOT NULL,
+CREATE TABLE "pedido" (
+    "id" SERIAL NOT NULL,
     "tipo_pedido" VARCHAR(20),
     "direccion" VARCHAR(50) NOT NULL,
     "conductor_id" INTEGER NOT NULL,
-    FOREIGN KEY ("conductor_id") REFERENCES "CONDUCTOR"("id"),
+    FOREIGN KEY ("conductor_id") REFERENCES "conductor"("id"),
     PRIMARY KEY ("id")
 );
 
+--CREATE SEQUENCE pedido_seq START 1;
+
 -- -----------------------------------------------------
--- Table "VEHICULO"
+-- Table "vehiculo"
 -- -----------------------------------------------------
-CREATE TABLE "VEHICULO" (
-    "id" INTEGER NOT NULL,
+CREATE TABLE "vehiculo" (
+    "id" SERIAL NOT NULL,
     "modelo" VARCHAR(4) NOT NULL,
     "placa" VARCHAR(7) NOT NULL,
     "capacidad" VARCHAR(7),
     "conductor_id" INTEGER,
-    FOREIGN KEY ("conductor_id") REFERENCES "CONDUCTOR"("id"),
+    FOREIGN KEY ("conductor_id") REFERENCES "conductor"("id"),
     PRIMARY KEY ("id")
 );
+
+--CREATE SEQUENCE vehiculo_seq START 1;
