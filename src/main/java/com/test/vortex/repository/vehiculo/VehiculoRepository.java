@@ -14,4 +14,8 @@ public interface VehiculoRepository {
     Optional<VehicleDto> getVehicleById(int idVehicle);
     VehicleDto save(VehicleDto vehicleDto);
     void delete(int idVehicle);
+
+    void assignConductorToUnassignedVehicle(int idVehicle, int idDriver);
+
+    void removeConductorFromVehicle(int idVehicle);
 }

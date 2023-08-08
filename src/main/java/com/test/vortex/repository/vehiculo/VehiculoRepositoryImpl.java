@@ -44,4 +44,14 @@ public class VehiculoRepositoryImpl implements VehiculoRepository{
     public void delete(int idVehicle) {
         crudRepository.deleteById(idVehicle);
     }
+
+    @Override
+    public void assignConductorToUnassignedVehicle(int idVehicle, int idDriver) {
+        crudRepository.assignConductorToUnassignedVehicle(idVehicle, idDriver);
+    }
+
+    @Override
+    public void removeConductorFromVehicle(int idVehicle) {
+        crudRepository.removeConductorFromVehicle(idVehicle);
+    }
 }

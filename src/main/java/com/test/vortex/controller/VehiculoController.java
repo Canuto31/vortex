@@ -40,4 +40,20 @@ public class VehiculoController {
         return new ResponseEntity<>(service.delete(idVehicle) ? "Deleted successfully" : "Not found",
                 this.service.delete(idVehicle) ? HttpStatus.OK : HttpStatus.NOT_FOUND);
     }
+
+    @PostMapping("/{id}/assign-driver/{idDriver}")
+    public ResponseEntity<String> assignDriver(@PathVariable("id") int idVehicle, @PathVariable("idDriver") int idDriver) {
+        return new ResponseEntity<>(service.assignConductorToUnassignedVehicle(idVehicle, idDriver) ? "Assigned Driver successfully" : "Not found",
+                this.service.assignConductorToUnassignedVehicle(idVehicle, idDriver) ? HttpStatus.OK : HttpStatus.NOT_FOUND);
+    }
+
+    @PostMapping("/{id}/remove-driver")
+    public ResponseEntity<String> removeDriverFromVehicle(@PathVariable("id") int idVehicle) {
+        try {
+            service.removeConductorById(idVehicle);
+            return ResponseEntity.ok("Conductor removed from vehicle successfully.");
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("An error occurred.");
+        }
+    }
 }

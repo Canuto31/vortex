@@ -36,9 +36,25 @@ public class VehiculoServiceImpl implements VehiculoService{
     }
 
     @Override
-    public Boolean delete(int idVehicle) {
+    public boolean delete(int idVehicle) {
         return getVehicleById(idVehicle).map(vehicle -> {
             repository.delete(idVehicle);
+            return true;
+        }).orElse(false);
+    }
+
+    @Override
+    public boolean assignConductorToUnassignedVehicle(int idVehicle, int idDriver) {
+        return getVehicleById(idVehicle).map(vehicle -> {
+            repository.assignConductorToUnassignedVehicle(idVehicle, idDriver);
+            return true;
+        }).orElse(false);
+    }
+
+    @Override
+    public boolean removeConductorById(Integer idVehicle) {
+        return getVehicleById(idVehicle).map(vehicle -> {
+            repository.removeConductorFromVehicle(idVehicle);
             return true;
         }).orElse(false);
     }

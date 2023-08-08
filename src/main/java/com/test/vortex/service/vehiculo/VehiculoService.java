@@ -11,5 +11,9 @@ public interface VehiculoService {
     Optional<List<VehicleDto>> getVehicleByIdDriver(int idVehicle);
     Optional<VehicleDto> getVehicleById(int idVehicle);
     VehicleDto save(VehicleDto vehicleDto);
-    Boolean delete(int idVehicle);
+    boolean delete(int idVehicle);
+
+    boolean assignConductorToUnassignedVehicle(int idVehicle, int idDriver);
+
+    boolean removeConductorById(Integer idVehicle);
 }
