@@ -8,7 +8,7 @@ import java.util.Optional;
 public interface ConductorService {
 
     List<DriverDto> getAll();
-    Optional<DriverDto> getDriverByIdentification(int identification);
+    Optional<DriverDto> getDriverByIdentification(String identification);
     Optional<DriverDto> getDriverById(int idDriver);
     DriverDto save(DriverDto driverDto);
     Boolean delete(int idDriver);

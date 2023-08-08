@@ -14,7 +14,7 @@ public class ConductorServiceImpl implements ConductorService{
     }
 
     @Override
-    public Optional<DriverDto> getDriverByIdentification(int identification) {
+    public Optional<DriverDto> getDriverByIdentification(String identification) {
         return Optional.empty();
     }
 
