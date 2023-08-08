@@ -11,5 +11,5 @@ public interface ConductorService {
     Optional<DriverDto> getDriverByIdentification(String identification);
     Optional<DriverDto> getDriverById(int idDriver);
     DriverDto save(DriverDto driverDto);
-    Boolean delete(int idDriver);
+    boolean delete(int idDriver);
 }

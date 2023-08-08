@@ -1,6 +1,7 @@
 package com.test.vortex.mapper;
 
 import com.test.vortex.model.dto.OrderDto;
+import com.test.vortex.model.entity.Conductor;
 import com.test.vortex.model.entity.Pedido;
 import org.springframework.stereotype.Component;
 
@@ -30,6 +31,9 @@ public class PedidoMapper implements BaseMapper<OrderDto, Pedido> {
         entity.setTipoPedido(dto.getOrderType());
         entity.setDireccion(dto.getAddress());
         entity.setConductorId(dto.getIdDriver());
+        /*Conductor conductor = new Conductor();
+        conductor.setId(dto.getIdDriver());
+        entity.setConductor(conductor);*/
 
         return entity;
     }

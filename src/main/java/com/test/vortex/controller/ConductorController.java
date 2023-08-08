@@ -21,12 +21,12 @@ public class ConductorController {
         return new ResponseEntity<>(service.getAll(), HttpStatus.OK);
     }
 
-    @GetMapping("/{identification}")
+    @GetMapping("/identificacion/{identification}")
     public ResponseEntity<DriverDto> getDriverByIdentification(@PathVariable("identification") String identification) {
         return service.getDriverByIdentification(identification).map(driver -> new ResponseEntity<>(driver, HttpStatus.OK)).orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/id/{id}")
     public ResponseEntity<DriverDto> getDriverById(@PathVariable("id") int id) {
         return service.getDriverById(id).map(driver -> new ResponseEntity<>(driver, HttpStatus.OK)).orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }

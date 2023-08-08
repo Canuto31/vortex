@@ -13,6 +13,7 @@ public class ConductorServiceImpl implements ConductorService{
 
     @Autowired
     private ConductorRepository repository;
+
     @Override
     public List<DriverDto> getAll() {
         return repository.getAll();
@@ -34,7 +35,7 @@ public class ConductorServiceImpl implements ConductorService{
     }
 
     @Override
-    public Boolean delete(int idDriver) {
+    public boolean delete(int idDriver) {
         return getDriverById(idDriver).map(driver -> {
             repository.delete(idDriver);
             return true;

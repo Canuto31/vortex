@@ -1,6 +1,8 @@
 package com.test.vortex.service.pedido;
 
 import com.test.vortex.model.dto.OrderDto;
+import com.test.vortex.repository.pedido.PedidoRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -9,9 +11,12 @@ import java.util.Optional;
 @Service
 public class PedidoServiceImpl implements PedidoService{
 
+    @Autowired
+    private PedidoRepository repository;
+
     @Override
     public List<OrderDto> getAll() {
-        return null;
+        return repository.getAll();
     }
 
     @Override

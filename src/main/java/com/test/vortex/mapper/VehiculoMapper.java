@@ -2,6 +2,7 @@ package com.test.vortex.mapper;
 
 import com.test.vortex.model.dto.OrderDto;
 import com.test.vortex.model.dto.VehicleDto;
+import com.test.vortex.model.entity.Conductor;
 import com.test.vortex.model.entity.Pedido;
 import com.test.vortex.model.entity.Vehiculo;
 import org.springframework.stereotype.Component;
@@ -33,6 +34,9 @@ public class VehiculoMapper implements BaseMapper<VehicleDto, Vehiculo>{
         entity.setPlaca(dto.getPlate());
         entity.setCapacidad(dto.getCapacity());
         entity.setConductorId(dto.getIdDriver());
+        /*Conductor conductor = new Conductor();
+        conductor.setId(dto.getIdDriver());
+        entity.setConductor(conductor);*/
 
         return entity;
     }

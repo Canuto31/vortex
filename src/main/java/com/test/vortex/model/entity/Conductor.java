@@ -6,7 +6,7 @@ import lombok.Data;
 import java.util.List;
 
 @Entity
-@Table(name = "CONDUCTOR")
+@Table(name = "conductor")
 @Data
 public class Conductor {
 
