@@ -22,6 +22,6 @@ public class Vehiculo {
     private Integer conductorId;
 
     @ManyToOne
-    @JoinColumn(name = "conductor_id")
+    @JoinColumn(name = "conductor_id", insertable = false, updatable = false)
     private Conductor conductor;
 }

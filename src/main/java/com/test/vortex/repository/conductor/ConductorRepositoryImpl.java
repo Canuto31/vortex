@@ -24,7 +24,7 @@ public class ConductorRepositoryImpl implements ConductorRepository{
     }
 
     @Override
-    public Optional<DriverDto> getDriverByIdentification(int idIdentification) {
+    public Optional<DriverDto> getDriverByIdentification(String idIdentification) {
         return crudRepository.findByIdentificacion(idIdentification).map((driver -> mapper.entityToDto(driver)));
     }
 

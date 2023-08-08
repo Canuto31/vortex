@@ -25,7 +25,7 @@ public class VehiculoRepositoryImpl implements VehiculoRepository{
 
     @Override
     public Optional<List<VehicleDto>> getVehicleByIdDriver(int idDriver) {
-        List<Vehiculo> orders = crudRepository.findByIdDriverOrderByFirstNameAsc(idDriver);
+        List<Vehiculo> orders = crudRepository.findByConductorId(idDriver);
         return Optional.of(mapper.entitiesToDtos(orders));
     }
 

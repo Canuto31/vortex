@@ -8,5 +8,5 @@ import java.util.Optional;
 
 public interface VehiculoCrudRepository extends CrudRepository<Vehiculo, Integer> {
 
-    List<Vehiculo> findByIdDriverOrderByFirstNameAsc(int idDriver);
+    List<Vehiculo> findByConductorId(int idDriver);
 }
